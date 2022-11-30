@@ -26,7 +26,7 @@ Once the `fontawesome` package has been loaded, you can begin to add cool fonts 
 
 For example, "I would like to discuss how education `r fa("fas fa-book", fill = "black")` affects our responders."
 
-To insert the book icon, I type the following code after education: 
+To insert the book icon, I typed the following code after education: 
 
 ```{r, eval = FALSE}
 `r fa("fas fa-book", fill = "black")`
@@ -43,7 +43,7 @@ I included the following code chunk into the text:
 
 ```{r, eval = FALSE}
 Teamspeak icon: `r fa("fas fa-teamspeak", fill = "black")`
-Disconrd icon: `r fa("fas fa-discord", fill = "black")`
+Discord icon: `r fa("fas fa-discord", fill = "black")`
 ```
 
 To make the icon bigger, you will need to include the `height` option in the code chunk: 
