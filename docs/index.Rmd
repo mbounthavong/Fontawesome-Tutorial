@@ -1,197 +1,62 @@
 ---
-title: "Lijia Yu's resume"
-author: Lijia Yu
-date: "`r Sys.Date()`"
-output:
-  pagedown::html_resume:
-    # set it to true for a self-contained HTML page but it'll take longer to render
-    self_contained: false
-# uncomment this line to produce HTML and PDF in RStudio:
-#knit: pagedown::chrome_print
+title: "Adding icons to R Markdown using the `Fontawesome` package -- a short tutorial"
+author: "Mark Bounthavong"
+date: "2022-11-29"
+output: html_document
 ---
 
-Aside
-================================================================================
 
+### Font Awesome
+[Font Awesome](https://github.com/rstudio/fontawesome) is an R package that allows you to insert an icon onto an R Markdown document. I came across this resource when I was learning how to build a curriculum vitae (CV) using `pagedown`, a convenient R package that allows you to build customized CV. 
 
-![Lijia Yu](https://avatars1.githubusercontent.com/u/895125?s=400&v=4){width=80%}
 
+### Instructions
+Make sure to install the `fontawesome` package in R by typing: `install.packages("fontawesome")`.
 
-Contact Info {#contact}
---------------------------------------------------------------------------------
+Then load the library with `fontawesome`: `library("fontawesome")`
 
-- <i class="fa fa-envelope"></i> lijia.yu@outlook.com
-- <i class="fa fa-github"></i> [github.com/yulijia](https://github.com/yulijia)
-- <i class="fa fa-phone"></i> +1 000-000-0000
-- For more information, please contact me via email.
+If you want to generate a list of icons available with fontawesome, type `fa_metadata()` in the Console. This will create a list of all known icons that you can use. However, this will be a very long list. An alternative way to find icons is to go to the `fontawesome.com` website [link](https://fontawesome.com/v5/icons/r-project?s=solid&f=brands). Note: Not all icons are available; you may need to wait for an update to the `fontawesome` package. 
 
+Let's load the library `fontawesome` and add some icons to our in-line text. 
+```{r load_packages, message = FALSE, warning = FALSE, include = TRUE} 
+library("fontawesome")
+```
 
-Skills {#skills}
---------------------------------------------------------------------------------
+Once the `fontawesome` package has been loaded, you can begin to add cool fonts into your R Markdown text. 
 
-- Experienced in statistical analysis, statistical learning models, and optimization methods.
+For example, "I would like to discuss how education `r fa("fas fa-book", fill = "black")` affects our responders."
 
-- Full experience with next generation sequencing data analysis.
+To insert the book icon, I type the following code after education: 
 
-- Highly skilled in R, Bash, Perl, Python, LaTeX
+```{r, eval = FALSE}
+`r fa("fas fa-book", fill = "black")`
+```
 
+This will generate a black book icon. I can change the color to red by replacing `black` with `red`.
 
-Disclaimer {#disclaimer}
---------------------------------------------------------------------------------
+Here is the red book icon: `r fa("fas fa-book", fill = "red")`
 
-This resume was made with the R package [**pagedown**](https://github.com/rstudio/pagedown).
 
-Last updated on `r Sys.Date()`.
+Another example: "My friends and I used to use Teamspeak `r fa("fab fa-teamspeak", fill = "black")` when we played World of Warcraft. Now, we use Discord `r fa("fab fa-discord", fill = "black")`."
 
+I included the following code chunk into the text:
 
+```{r, eval = FALSE}
+Teamspeak icon: `r fa("fas fa-teamspeak", fill = "black")`
+Disconrd icon: `r fa("fas fa-discord", fill = "black")`
+```
 
-Main
-================================================================================
+To make the icon bigger, you will need to include the `height` option in the code chunk: 
 
-Lijia Yu {#title}
---------------------------------------------------------------------------------
+"Here is a bigger icon (x2) for Discord `r fa("fab fa-discord", fill = "black", height = "2em")`"
 
-### Currently searching for a PhD student position
+"Here is a bigger icon (x3) for Discord `r fa("fab fa-discord", fill = "black", height = "3em")`"
 
-Please note that this is a *real* resume, and I'm really looking for a PhD
-student position at the moment. I made this resume because Yihui asked me
-if I'd like to test the **pagedown** package with my resume. If you are
-interested in my background and skills, please feel free to contact me.
+### Summary
+This is a new discovery, and I will likely update this tutorial as I learn more. Consider this a work in progress.
 
 
-Education {data-icon=graduation-cap data-concise=true}
---------------------------------------------------------------------------------
+### References
+[Font Awesome PDF documentation](https://cran.r-project.org/web/packages/fontawesome/fontawesome.pdf)
 
-### Beijing University of Chemical Technology
-
-B.S. in Information and Computing Sciences
-
-Beijing, China
-
-2010
-
-Thesis: Dyadic wavelet and its application in edge detection
-
-### University of Chinese Academy of Sciences
-
-M.S. in Bioinformatics
-
-Beijing, China
-
-2014
-
-Thesis: A multi-omics study for intra-individual divergence of the distributions between mRNA isoforms in mammals
-
-
-Research Experience {data-icon=laptop}
---------------------------------------------------------------------------------
-
-### Graduate Research Assistant
-
-Beijing Institute of Genomics, Chinese Academy of Sciences
-
-Beijing, China
-
-2011 - 2014
-
-- Performed computational biology research towards understanding regulation of alternative splicing in human and mouse transcriptome.
-- Found EGFR pathway related mutations, aimed to understand the impacts of cancer mutations on EGFR signaling pathway.
-
-### Bioinformatican
-
-My Health Gene Technology Co., Ltd.
-
-Beijing, China
-
-2015 - 2016
-
-- Investigated how cancer cells spread to other parts of the body at the single cell level.
-
-### Visiting Scientist
-
-University of Alabama at Birmingham
-
-AL, USA
-
-2016 - 2018
-
-- Investigated the role of mitochondria in development of cancer.
-- Investigated the evolution of genome architecture and its role in important evolutionary events.
-- Detected thrombotic thrombocytopenic purpura related mutations in mutiple patients' blood genome.
-  
-
-Professional Experience {data-icon=suitcase}
---------------------------------------------------------------------------------
-
-### Data Scientist, intern
-
-SupStat Inc.
-
-Beijing, China
-
-2014
-
-::: concise
-- Taught R language to beginners. 
-- Wrote Shiny app demos.
-- Converted statistical tutorials from SPSS to R language.
-:::
-
-### Bioinformatician
-
-My Health Gene Technology Co., Ltd.
-
-Beijing, China
-
-2015 - 2016
-
-::: concise
-- Analyzed whole-exome sequencing data. 
-- Wrote analysis pipelines of ChIP-seq, single cell DNA-seq and single cell RNA-seq.
-- Studied tumor metastasis and wrote research reports. 
-- Also did case studies to identify the genetic defect causing rare disease.
-:::
-
-
-Teaching Experience {data-icon=chalkboard-teacher}
---------------------------------------------------------------------------------
-
-### Introduction to R Language for Beginners.
-
-Instructor of R and Data Mining Training Courses at SupStat Inc.
-
-Beijing, China
-
-2014
-
-### Computational Biology and Bioinformatics.
-
-Teaching assistant of GBS CB2-201 courses at UAB
-
-AL, USA
-
-2016 - 2017
-
-
-Selected Publications and Posters {data-icon=file}
---------------------------------------------------------------------------------
-
-### Genetic and epigenetic signals are found predictive to the distribution of intra-individual divergence of alternative splicing.
-
-Poster for 2013 International Conference of Genomics
-
-Qingdao, China
-
-2014
-
-**Yu L**, Chen B, Zhang Z.
-
-### ESCRT-0 complex modulates Rbf mutant cell survival by regulating Rhomboid endosomal trafficking and EGFR signaling.
-
-J Cell Sci. 2016 May 15;129(10):2075-84.
-
-N/A
-
-2016 
-
-Sheng Z, **Yu L**, Zhang T, Pei X, Li X, Zhang Z and Du W. 
+[Font awesome developer site](https://rstudio.github.io/fontawesome/)
